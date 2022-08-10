@@ -36,17 +36,6 @@ module.exports = {
             });
       });
     },
-    cadastroUsuario: (nome, email, senha,confirmPassword) => {
-        return new Promise ((accept, reject) => { 
-            db.query('INSERT INTO usuarios(nome, email, senha, confirmPassword) VALUES (?,?,?,?)',
-                     [nome, email,senha, confirmPassword], 
-                     (error, result) =>{
-                        if(error) {reject (error); return; }
-                        accept (result.insertCodigo);
-                             
-            });
-      });
-    },
 
     update: (id,nome, editora, idioma, Autor, qtsPaginar, resumo ) => {
         return new Promise ((accept, reject) => { 

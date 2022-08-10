@@ -68,34 +68,7 @@ module.exports = {
         }
             res.json(json);
     },
-    cadastroUsuario: async (req, res) => {
-        const { nome, email, senha,confirmPassword } = req.body
-
-        if(!nome || !email || !senha ){
-            return res.status(422).json({msg: "Existem campos que nao foram preenchidos"})
-
-        }
-        if(senha != confirmPassword){
-            return res.status(422).json({msg: "Senhas não correspondente"})
-        }
-        
-        if(nome && email && senha){
-      
-            let livroCodigo = await bibliotecaServices.cadastroUsuario(nome, email, senha);
-            json.result = {
-                codigo: livroCodigo,
-                nome,   
-                email,
-                senha
-            };
-
-        }else{
-            json.error = 'Não foi possível inserir dados';
-        }
-            res.json(json);
-
-
-    },
+   
     update: async (req, res) => {
         let json = {error: '', result:{}};
 
